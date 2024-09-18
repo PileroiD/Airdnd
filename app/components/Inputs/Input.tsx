@@ -12,6 +12,7 @@ interface InputProps {
     required?: boolean;
     register: UseFormRegister<FieldValues>;
     errors: FieldErrors;
+    value?: string | number;
     pattern?: {
         value: RegExp;
         message: string;
@@ -28,6 +29,7 @@ function Input({
     register,
     errors,
     pattern,
+    value,
 }: InputProps) {
     return (
         <div className="w-full relative">
@@ -39,6 +41,7 @@ function Input({
             )}
             <input
                 {...register(id, { required, pattern })}
+                value={value}
                 placeholder=" "
                 type={type}
                 disabled={disabled}

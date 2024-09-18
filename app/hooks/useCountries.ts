@@ -18,6 +18,9 @@ const useCountries = () => {
     return { countries, getCountryByValue };
 };
 
+export const getServerCountryByValue = (countryInitials: string) =>
+    formattedCountries.find((country) => country.value === countryInitials);
+
 export type CountrySelectValue = {
     flag: string;
     label: string;

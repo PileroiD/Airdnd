@@ -9,6 +9,7 @@ interface ButtonProps {
     outline?: boolean;
     small?: boolean;
     icon?: IconType;
+    showHoverAnimation?: boolean;
 }
 
 function Button({
@@ -18,6 +19,7 @@ function Button({
     outline,
     small,
     icon: Icon,
+    showHoverAnimation,
 }: ButtonProps) {
     return (
         <button
@@ -31,7 +33,7 @@ function Button({
                 small
                     ? "py-1 text-sm font-light border-[1px]"
                     : "py-3 text-md font-semibold border-2"
-            }`}
+            } ${showHoverAnimation && "hover:bg-neutral-200 transition"}`}
         >
             {Icon && <Icon size={24} className="absolute left-4 top-3" />}
             {label}

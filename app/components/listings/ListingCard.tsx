@@ -1,10 +1,10 @@
 import { getServerCountryByValue } from "@/app/hooks/useCountries";
 import { Listing, Reservation, User } from "@prisma/client";
 import { format } from "date-fns";
-import Image from "next/image";
 import HeartButton from "./HeartButton";
 import Button from "../Button";
-import Link from "next/link";
+import { useCallback } from "react";
+import ImageNavigation from "./ImageNavigation";
 
 interface ListingCardProps {
     data: Listing;
@@ -27,10 +27,10 @@ function ListingCard({
 }: ListingCardProps) {
     const location = getServerCountryByValue(data.locationValue);
 
-    const handleCancel = () => {
+    const handleCancel = useCallback(() => {
         if (disabled) return;
         onAction?.(actionId);
-    };
+    }, []);
 
     const price = reservation ? reservation.totalPrice : data.price;
 
@@ -44,14 +44,12 @@ function ListingCard({
     };
 
     return (
-        <Link href={data.id} className="col-span-1 group">
+        <div className="col-span-1 group">
             <div className="flex flex-col gap-2 w-full">
                 <div className="aspect-square w-full relative overflow-hidden rounded-xl">
-                    <Image
-                        src={data.imageSrc}
-                        fill
-                        alt="Listing"
-                        className="object-cover h-full w-full group-hover:scale-110 transition cursor-pointer"
+                    <ImageNavigation
+                        imageSrc={data?.imageSrc}
+                        listingId={data?.id}
                     />
                     <div className="absolute top-3 right-3">
                         <HeartButton
@@ -79,7 +77,7 @@ function ListingCard({
                     />
                 )}
             </div>
-        </Link>
+        </div>
     );
 }
 

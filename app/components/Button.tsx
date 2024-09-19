@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { type IconType } from "react-icons";
 
 interface ButtonProps {
@@ -41,4 +42,4 @@ function Button({
     );
 }
 
-export default Button;
+export default memo(Button);

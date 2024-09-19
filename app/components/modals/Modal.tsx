@@ -46,15 +46,15 @@ function Modal({
         return () => clearTimeout(timerId);
     }, [disabled, onClose]);
 
-    const handleSubmit = () => {
+    const handleSubmit = useCallback(() => {
         if (disabled) return;
         onSubmit();
-    };
+    }, []);
 
-    const handleSecondaryAction = () => {
+    const handleSecondaryAction = useCallback(() => {
         if (!secondaryAction || disabled) return;
         secondaryAction();
-    };
+    }, []);
 
     if (!isOpen) return null;
 

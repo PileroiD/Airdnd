@@ -5,6 +5,7 @@ import HeartButton from "./HeartButton";
 import Button from "../Button";
 import { useCallback } from "react";
 import ImageNavigation from "./ImageNavigation";
+import { getLocation } from "@/app/utils/getLocation";
 
 interface ListingCardProps {
     data: Listing;
@@ -59,7 +60,7 @@ function ListingCard({
                     </div>
                 </div>
                 <div className="font-semibold text-lg">
-                    {location?.region}, {location?.label}
+                    {getLocation(location)}
                 </div>
                 <div className="font-light text-neutral-500">
                     {reservationDate() || data.category}

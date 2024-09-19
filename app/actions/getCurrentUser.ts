@@ -11,7 +11,8 @@ export default async function getCurrentUser() {
         const session = await getSession();
 
         if (!session) {
-            throw new Error("User is not authenticated");
+            console.error("User is not authenticated");
+            return null;
         }
 
         const currentUser = await prisma.user.findUnique({
@@ -22,11 +23,13 @@ export default async function getCurrentUser() {
 
         if (!currentUser) {
             console.error("Something went wrong!");
-            return;
+            return null;
         }
 
         return currentUser;
     } catch (error) {
         console.log("error :>> ", error);
     }
+
+    return null;
 }

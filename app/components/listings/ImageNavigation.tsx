@@ -18,7 +18,7 @@ function ImageNavigation({
             fill
             alt="Listing"
             className="object-cover h-full w-full group-hover:scale-110 transition cursor-pointer"
-            onClick={() => router.push(listingId)}
+            onClick={() => router.push(`/listings/${listingId}`)}
         />
     );
 }

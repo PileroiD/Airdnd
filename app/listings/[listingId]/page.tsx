@@ -5,6 +5,8 @@ import EmptyState from "@/app/components/EmptyState";
 import ListingHead from "./ListingHead";
 import ListingInfo from "./ListingInfo";
 import { categories } from "@/app/constants/categories.data";
+import ListingReservation from "./ListingReservation";
+import { getReservations } from "@/app/actions/getReservations";
 
 interface ListingPageProps {
     params: {
@@ -14,6 +16,8 @@ interface ListingPageProps {
 
 async function ListingPage({ params: { listingId } }: ListingPageProps) {
     const listing = await getListingById(listingId);
+    // const reservations = await getReservations();
+
     const listingCategory = categories.find(
         (category) => category.label === listing?.category
     );
@@ -52,6 +56,14 @@ async function ListingPage({ params: { listingId } }: ListingPageProps) {
                             bathroomCount={listing.bathroomCount}
                             locationValue={listing.locationValue}
                         />
+                        <div className="order-first mb-10 md:order-last md:col-span-3">
+                            <ListingReservation
+                                reservations={[]}
+                                currentUser={currentUser}
+                                listingPrice={listing.price}
+                                listingId={listingId}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

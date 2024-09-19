@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 import ListingCategory from "./ListingCategory";
 import dynamic from "next/dynamic";
 
-const Map = dynamic(() => import("../../components/Map"));
+const Map = dynamic(() => import("../../components/Map"), { ssr: false });
 
 interface ListingInfoProps {
     user: User;

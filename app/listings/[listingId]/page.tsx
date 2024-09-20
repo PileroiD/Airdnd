@@ -16,7 +16,7 @@ interface ListingPageProps {
 
 async function ListingPage({ params: { listingId } }: ListingPageProps) {
     const listing = await getListingById(listingId);
-    // const reservations = await getReservations();
+    const reservations = await getReservations({ listingId });
 
     const listingCategory = categories.find(
         (category) => category.label === listing?.category
@@ -58,7 +58,7 @@ async function ListingPage({ params: { listingId } }: ListingPageProps) {
                         />
                         <div className="order-first mb-10 md:order-last md:col-span-3">
                             <ListingReservation
-                                reservations={[]}
+                                reservations={reservations}
                                 currentUser={currentUser}
                                 listingPrice={listing.price}
                                 listingId={listingId}

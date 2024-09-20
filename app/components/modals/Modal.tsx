@@ -15,6 +15,7 @@ interface ModalProps {
     disabled?: boolean;
     secondaryAction?: () => void;
     secondaryLabel?: string | null;
+    step: number;
 }
 
 function Modal({
@@ -28,6 +29,7 @@ function Modal({
     disabled,
     secondaryAction,
     secondaryLabel: secondaryActionLabel,
+    step,
 }: ModalProps) {
     const [showModal, setShowModal] = useState(isOpen);
 
@@ -49,12 +51,12 @@ function Modal({
     const handleSubmit = useCallback(() => {
         if (disabled) return;
         onSubmit();
-    }, []);
+    }, [step]);
 
     const handleSecondaryAction = useCallback(() => {
         if (!secondaryAction || disabled) return;
         secondaryAction();
-    }, []);
+    }, [step]);
 
     if (!isOpen) return null;
 

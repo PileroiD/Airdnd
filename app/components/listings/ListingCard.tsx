@@ -3,7 +3,7 @@ import { Listing, Reservation, User } from "@prisma/client";
 import { format } from "date-fns";
 import HeartButton from "./HeartButton";
 import Button from "../Button";
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import ImageNavigation from "./ImageNavigation";
 import { getLocation } from "@/app/utils/getLocation";
 
@@ -38,7 +38,7 @@ function ListingCard({
     const reservationDate = () => {
         if (!reservation) return;
 
-        const startDate = new Date(reservation.createdAt);
+        const startDate = new Date(reservation.startDate);
         const endDate = new Date(reservation.endDate);
 
         return `${format(startDate, "PP")} - ${format(endDate, "PP")}`;
@@ -82,4 +82,4 @@ function ListingCard({
     );
 }
 
-export default ListingCard;
+export default memo(ListingCard);

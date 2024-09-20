@@ -2,7 +2,7 @@
 
 import { useRentModal } from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "@/app/constants/categories.data";
 import CategoryInput from "../Inputs/CategoryInput";
@@ -75,33 +75,36 @@ function RentModal() {
         });
     };
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        if (step !== STEPS.PRICE) {
-            return onGoNext();
-        }
+    const onSubmit: SubmitHandler<FieldValues> = useCallback(
+        (data) => {
+            if (step !== STEPS.PRICE) {
+                return onGoNext();
+            }
 
-        setIsLoading(true);
+            setIsLoading(true);
 
-        axios
-            .post("/api/listings", data)
-            .then(() => {
-                toast.success("Listing created!", {
-                    duration: 3000,
-                    position: "bottom-right",
-                });
-                router.refresh();
-                reset();
-                setStep(STEPS.CATEGORY);
-                rentModal.onClose();
-            })
-            .catch((err: AxiosError) => {
-                toast.error(err?.response?.data as string, {
-                    duration: 3000,
-                    position: "bottom-right",
-                });
-            })
-            .finally(() => setIsLoading(false));
-    };
+            axios
+                .post("/api/listings", data)
+                .then(() => {
+                    toast.success("Listing created!", {
+                        duration: 3000,
+                        position: "bottom-right",
+                    });
+                    router.refresh();
+                    reset();
+                    setStep(STEPS.CATEGORY);
+                    rentModal.onClose();
+                })
+                .catch((err: AxiosError) => {
+                    toast.error(err?.response?.data as string, {
+                        duration: 3000,
+                        position: "bottom-right",
+                    });
+                })
+                .finally(() => setIsLoading(false));
+        },
+        [step]
+    );
 
     const onGoBack = () =>
         step > STEPS.CATEGORY ? setStep((prev) => prev - 1) : null;
@@ -259,6 +262,7 @@ function RentModal() {
             secondaryAction={step === STEPS.CATEGORY ? undefined : onGoBack}
             title="Airdnd your home!"
             body={bodyContent}
+            step={step}
         />
     );
 }

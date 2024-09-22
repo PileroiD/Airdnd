@@ -15,7 +15,7 @@ interface ModalProps {
     disabled?: boolean;
     secondaryAction?: () => void;
     secondaryLabel?: string | null;
-    step: number;
+    step?: number;
 }
 
 function Modal({

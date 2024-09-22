@@ -7,12 +7,12 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../Inputs/Input";
-import toast from "react-hot-toast";
 import Button from "../Button";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { useLoginModal } from "@/app/hooks/useLoginModal";
 import { signIn } from "next-auth/react";
+import { showToastNotification } from "@/app/utils/showToastNotification";
 
 function RegisterModal() {
     const registerModal = useRegisterModal();
@@ -38,15 +38,14 @@ function RegisterModal() {
             .post("/api/register", data)
             .then(() => {
                 registerModal.onClose();
+                showToastNotification("success", "Successfully registered!");
+                loginModal.onOpen();
                 reset();
             })
             .catch((err) => {
                 const errorMessage =
                     err?.response?.data?.error || "Something went wrong!";
-                toast.error(errorMessage, {
-                    duration: 3000,
-                    position: "bottom-right",
-                });
+                showToastNotification("error", errorMessage);
             })
             .finally(() => setIsLoading(false));
     };

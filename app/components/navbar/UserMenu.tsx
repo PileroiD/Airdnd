@@ -84,7 +84,10 @@ function UserMenu({ currentUser }: UserMenuProps) {
                                 />
                                 <MenuItem
                                     label="My reservations"
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                        router.push("/reservations");
+                                        setIsOpen(false);
+                                    }}
                                 />
                                 <MenuItem
                                     label="My properties"

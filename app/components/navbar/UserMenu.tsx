@@ -94,7 +94,10 @@ function UserMenu({ currentUser }: UserMenuProps) {
                                 />
                                 <MenuItem
                                     label="My properties"
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                        router.push("/properties");
+                                        setIsOpen(false);
+                                    }}
                                 />
                                 <MenuItem
                                     label="Airdnd my home"

@@ -6,7 +6,7 @@ import UserMenu from "./UserMenu";
 import Categories from "./Categories";
 
 interface NavbarProps {
-    currentUser?: User;
+    currentUser?: User | null;
 }
 
 function Navbar({ currentUser }: NavbarProps) {

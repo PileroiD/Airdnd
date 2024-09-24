@@ -112,8 +112,8 @@ function RentModal() {
     const onGoNext = () =>
         step < STEPS.PRICE ? setStep((prev) => prev + 1) : null;
 
-    const getActionLabel = step === STEPS.PRICE ? "Create" : "Next";
-    const getSecondaryActionLabel = step !== STEPS.CATEGORY ? "Back" : null;
+    const actionLabel = step === STEPS.PRICE ? "Create" : "Next";
+    const secondaryActionLabel = step !== STEPS.CATEGORY ? "Back" : null;
 
     let bodyContent = (
         <div className="flex flex-col gap-8">
@@ -257,8 +257,8 @@ function RentModal() {
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
-            actionLabel={getActionLabel}
-            secondaryLabel={getSecondaryActionLabel}
+            actionLabel={actionLabel}
+            secondaryLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.CATEGORY ? undefined : onGoBack}
             title="Airdnd your home!"
             body={bodyContent}

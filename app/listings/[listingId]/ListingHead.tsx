@@ -1,7 +1,7 @@
-import Heading from "@/app/components/Heading";
-import HeartButton from "@/app/components/listings/HeartButton";
 import { getServerCountryByValue } from "@/app/hooks/useCountries";
 import { getLocation } from "@/app/utils/getLocation";
+import Heading from "@/components/Heading";
+import HeartButton from "@/components/listings/HeartButton";
 import { User } from "@prisma/client";
 import Image from "next/image";
 

@@ -1,8 +1,6 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useRegisterModal } from "../../hooks/useRegisterModal";
-import { useLoginModal } from "../../hooks/useLoginModal";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "./Modal";
@@ -13,6 +11,8 @@ import Button from "../Button";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+import { useLoginModal } from "@/app/hooks/useLoginModal";
 
 function LoginModal() {
     const registerModal = useRegisterModal();

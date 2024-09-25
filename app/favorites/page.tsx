@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
+
+import EmptyState from "@/components/EmptyState";
 import getCurrentUser from "../actions/getCurrentUser";
 import { getFavoriteListings } from "../actions/getFavoriteListings";
-import Container from "../components/Container";
-import EmptyState from "../components/EmptyState";
-import Heading from "../components/Heading";
 import FavoritesClient from "./FavoritesClient";
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 
 async function FavoritesPage() {
     const favoriteListings = await getFavoriteListings();

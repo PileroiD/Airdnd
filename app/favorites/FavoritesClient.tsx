@@ -1,5 +1,5 @@
 import { Listing, User } from "@prisma/client";
-import ListingCard from "../components/listings/ListingCard";
+import ListingCard from "@/components/listings/ListingCard";
 
 interface FavoritesClientProps {
     favListings: Listing[];

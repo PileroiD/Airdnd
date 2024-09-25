@@ -1,11 +1,11 @@
 "use client";
 
 import { Listing, Reservation, User } from "@prisma/client";
-import ListingCard from "../components/listings/ListingCard";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import { showToastNotification } from "../utils/showToastNotification";
+import ListingCard from "@/components/listings/ListingCard";
 
 interface TripsClientProps {
     reservations: (Reservation & { listing: Listing })[];

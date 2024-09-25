@@ -1,8 +1,8 @@
 "use client";
 
-import Button from "@/app/components/Button";
-import Calendar from "@/app/components/Inputs/Calendar";
 import { useLoginModal } from "@/app/hooks/useLoginModal";
+import Button from "@/components/Button";
+import Calendar from "@/components/Inputs/Calendar";
 import { Reservation, User } from "@prisma/client";
 import axios from "axios";
 import { eachDayOfInterval } from "date-fns";

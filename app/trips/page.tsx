@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
+
+import EmptyState from "@/components/EmptyState";
 import getCurrentUser from "../actions/getCurrentUser";
 import { getReservations } from "../actions/getReservations";
-import Container from "../components/Container";
-import EmptyState from "../components/EmptyState";
-import Heading from "../components/Heading";
 import TripsClient from "./TripsClient";
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 
 async function TripsPage() {
     const currentUser = await getCurrentUser();

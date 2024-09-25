@@ -1,12 +1,12 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { getListingById } from "@/app/actions/getListingById";
-import Container from "@/app/components/Container";
-import EmptyState from "@/app/components/EmptyState";
 import ListingHead from "./ListingHead";
 import ListingInfo from "./ListingInfo";
 import { categories } from "@/app/constants/categories.data";
 import ListingReservation from "./ListingReservation";
 import { getReservations } from "@/app/actions/getReservations";
+import EmptyState from "@/components/EmptyState";
+import Container from "@/components/Container";
 
 interface ListingPageProps {
     params: {

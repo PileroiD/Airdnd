@@ -1,11 +1,11 @@
-import Avatar from "@/app/components/Avatar";
 import { getServerCountryByValue } from "@/app/hooks/useCountries";
 import { User } from "@prisma/client";
 import { IconType } from "react-icons";
 import ListingCategory from "./ListingCategory";
 import dynamic from "next/dynamic";
+import Avatar from "@/components/Avatar";
 
-const Map = dynamic(() => import("../../components/Map"), { ssr: false });
+const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 
 interface ListingInfoProps {
     user: User;

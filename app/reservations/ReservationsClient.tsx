@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { showToastNotification } from "../utils/showToastNotification";
-import ListingCard from "../components/listings/ListingCard";
+import ListingCard from "@/components/listings/ListingCard";
 
 interface ReservationsClientProps {
     reservations?: (Reservation & { listing: Listing })[];

@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
+
+import EmptyState from "@/components/EmptyState";
 import getCurrentUser from "../actions/getCurrentUser";
 import getListings from "../actions/getListings";
-import Container from "../components/Container";
-import EmptyState from "../components/EmptyState";
-import Heading from "../components/Heading";
 import PropertiesClient from "./PropertiesClient";
+import Heading from "@/components/Heading";
+import Container from "@/components/Container";
 
 async function PropertiesPage() {
     const currentUser = await getCurrentUser();

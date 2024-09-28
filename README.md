@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Airdnd
+
+Airdnd is a clone of Airbnb, built using Next.js. This application allows users to list, search, and book rental properties.
+
+## Features
+
+- User Authentication (Sign up, Login, Logout)
+- Property Listings
+- Property Search and Filtering
+- Booking and Reservations
+- User Reviews and Ratings
+- Responsive Design
+
+## Technologies Used
+
+- Next.js
+- React
+- Tailwind CSS
+- Prisma
+- MongoDB
+- NextAuth
 
 ## Getting Started
 
